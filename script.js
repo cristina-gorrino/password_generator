@@ -12,3 +12,13 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// min 8 char, max 128 char
+var length
+
+// lower, upper, special, numeric characters
+// must have at least one of these types
+var hasLowercase
+var hasUppercase
+var hasSpecial
+var hasNumeric
