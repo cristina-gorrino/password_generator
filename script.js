@@ -13,8 +13,25 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// min 8 char, max 128 char
-var length
+function generatePassword() {
+  // Ask user for password length, then validate 
+  // min 8 char, max 128 char
+  var passwordLength = prompt("Enter the password length. At least 8 characters and no more than 128.");
+  var hasValidLength = false;
+
+  while (hasValidLength === false){
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      console.log("next question");
+      hasValidLength = true;
+    } else {
+      passwordLength = prompt("The password length must be least 8 characters and no more than 128. Please enter a number");
+    }
+  }
+  
+  
+}
+ 
+
 
 // lower, upper, special, numeric characters
 // must have at least one of these types
