@@ -70,6 +70,7 @@ function generatePassword() {
     var chooseFromArray = [];
     var passwordArray = [];
     
+    //TODO: Fix bug, only adds the first true array. Need to do all combinations
     if (hasLowercase) {
       chooseFromArray = chooseFromArray.concat(lowLetters);
     } else if (hasUppercase) {
@@ -82,12 +83,17 @@ function generatePassword() {
 
     // Choose characters from the combined array untill you fill the passwordArray to the required length
     while (passwordArray.length < passwordLength) {
-      
+      // choose a random number within the chooseFromArray, take the element at that index and add it to passwordArray
+      console.log(`chooseFromArray.length: ${chooseFromArray.length}`)
+      var i = Math.floor(Math.random() * Math.floor(chooseFromArray.length));
+      passwordArray = passwordArray.push(chooseFromArray[i]);
     }
 
-    var passwordFinal = passwordArray.join("");
-    console.log(passwordFinal);
-    return passwordFinal;
+    console.log(passwordArray);
+    console.log(typeof passwordArray);
+   //var passwordFinal = passwordArray.join('');
+    //console.log(passwordFinal);
+    //return passwordFinal;
 
   }
   
