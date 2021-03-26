@@ -21,7 +21,6 @@ function generatePassword() {
 
   while (hasValidLength === false){
     if (passwordLength >= 8 && passwordLength <= 128) {
-      console.log("next question"); // REMOVE
       hasValidLength = true;
     } else {
       passwordLength = prompt("The password length must be least 8 characters and no more than 128. Please enter a number");
@@ -46,8 +45,14 @@ function generatePassword() {
     
     if (hasLowercase || hasUppercase || hasNumeric || hasSpecial) {
       hasValidComponent = true;
+    } else {
+      alert("The password must contain at least one of these character types. Please choose again.");
+      var hasLowercase = confirm("Should this password contain lowercase letters? OK for yes, Cancel for no.");
+      var hasUppercase = confirm("Should this password contain uppercase letters? OK for yes, Cancel for no.");
+      var hasNumeric = confirm("Should this password contain numeric characters? OK for yes, Cancel for no.");
+      var hasSpecial = confirm("Should this password contain special characters? OK for yes, Cancel for no.");
     }
-    
+
   }
   
   
