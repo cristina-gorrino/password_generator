@@ -27,19 +27,31 @@ function generatePassword() {
       passwordLength = prompt("The password length must be least 8 characters and no more than 128. Please enter a number");
     }
   }
-  
+  // Password components
   var specialChar = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
   var nums = [0,1,2,3,4,5,6,7,8,9];
   var letters = "abcdefghijklmnopqrstuvwxyz";
 
-  console.log(specialChar);
+  // Ask user for required password components
+  // lower, upper, special, numeric characters
+  // must have at least one of these types
+  
+  var hasValidComponent = false;
+
+  while (hasValidComponent === false){
+    var hasLowercase = confirm("Should this password contain lowercase letters? OK for yes, Cancel for no.");
+    var hasUppercase = confirm("Should this password contain uppercase letters? OK for yes, Cancel for no.");
+    var hasNumeric = confirm("Should this password contain numeric characters? OK for yes, Cancel for no.");
+    var hasSpecial = confirm("Should this password contain special characters? OK for yes, Cancel for no.");
+    
+    if (hasLowercase || hasUppercase || hasNumeric || hasSpecial) {
+      hasValidComponent = true;
+    }
+    
+  }
+  
+  
 }
  
 
 
-// lower, upper, special, numeric characters
-// must have at least one of these types
-var hasLowercase
-var hasUppercase
-var hasSpecial
-var hasNumeric
