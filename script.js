@@ -67,8 +67,27 @@ function generatePassword() {
     }
 
     // Building Password
-    var newArr = specialChar.concat(upLetters, lowLetters, nums);
-    console.log(newArr);
+    var chooseFromArray = [];
+    var passwordArray = [];
+    
+    if (hasLowercase) {
+      chooseFromArray = chooseFromArray.concat(lowLetters);
+    } else if (hasUppercase) {
+      chooseFromArray = chooseFromArray.concat(upLetters);
+    } else if (hasNumeric) {
+      chooseFromArray = chooseFromArray.concat(nums);
+    } else if (hasSpecial) {
+      chooseFromArray = chooseFromArray.concat(specialChar);
+    }
+
+    // Choose characters from the combined array untill you fill the passwordArray to the required length
+    while (passwordArray.length < passwordLength) {
+      
+    }
+
+    var passwordFinal = passwordArray.join("");
+    console.log(passwordFinal);
+    return passwordFinal;
 
   }
   
