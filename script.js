@@ -29,7 +29,8 @@ function generatePassword() {
   // Password components
   var specialChar = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
   var nums = [0,1,2,3,4,5,6,7,8,9];
-  var letters = "abcdefghijklmnopqrstuvwxyz";
+  var upLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; 
+  var lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
   // Ask user for required password components
   // lower, upper, special, numeric characters
@@ -48,10 +49,26 @@ function generatePassword() {
     } else {
       alert("The password must contain at least one of these character types. Please choose again.");
       var hasLowercase = confirm("Should this password contain lowercase letters? OK for yes, Cancel for no.");
+      if (hasLowercase){
+        hasValidComponent = true;
+      }
       var hasUppercase = confirm("Should this password contain uppercase letters? OK for yes, Cancel for no.");
+      if (hasUppercase){
+        hasValidComponent = true;
+      }
       var hasNumeric = confirm("Should this password contain numeric characters? OK for yes, Cancel for no.");
+      if (hasNumeric){
+        hasValidComponent = true;
+      }
       var hasSpecial = confirm("Should this password contain special characters? OK for yes, Cancel for no.");
+      if (hasSpecial){
+        hasValidComponent = true;
+      }
     }
+
+    // Building Password
+    var newArr = specialChar.concat(upLetters, lowLetters, nums);
+    console.log(newArr);
 
   }
   
