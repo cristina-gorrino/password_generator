@@ -17,6 +17,7 @@ function generatePassword() {
   // Ask user for password length, then validate 
   // min 8 char, max 128 char
   var passwordLength = prompt("Enter the password length. At least 8 characters and no more than 128.");
+  console.log(`passwordLength: ${passwordLength}`)
   var hasValidLength = false;
 
   while (hasValidLength === false){
@@ -73,24 +74,31 @@ function generatePassword() {
     //TODO: Fix bug, only adds the first true array. Need to do all combinations
     if (hasLowercase) {
       chooseFromArray = chooseFromArray.concat(lowLetters);
-    } else if (hasUppercase) {
+    } 
+    if (hasUppercase) {
       chooseFromArray = chooseFromArray.concat(upLetters);
-    } else if (hasNumeric) {
+    } 
+    if (hasNumeric) {
       chooseFromArray = chooseFromArray.concat(nums);
-    } else if (hasSpecial) {
+    } 
+    if (hasSpecial) {
       chooseFromArray = chooseFromArray.concat(specialChar);
     }
 
     // Choose characters from the combined array untill you fill the passwordArray to the required length
     while (passwordArray.length < passwordLength) {
       // choose a random number within the chooseFromArray, take the element at that index and add it to passwordArray
-      console.log(`chooseFromArray.length: ${chooseFromArray.length}`)
+      console.log(`chooseFromArray.length: ${chooseFromArray.length}`);
+      console.log(`chooseFromArray: ${chooseFromArray}`);
       var i = Math.floor(Math.random() * Math.floor(chooseFromArray.length));
+      console.log(`i: ${i}`);
+      console.log(`passwordArrayB4: ${passwordArray}`);
       passwordArray = passwordArray.push(chooseFromArray[i]);
+      console.log(`passwordArrayAFTER: ${passwordArray}`);
     }
 
-    console.log(passwordArray);
-    console.log(typeof passwordArray);
+    console.log(`passwordArrayLAST: ${passwordArray}`);
+    console.log(`typeof passwordArray ${typeof passwordArray}`);
    //var passwordFinal = passwordArray.join('');
     //console.log(passwordFinal);
     //return passwordFinal;
