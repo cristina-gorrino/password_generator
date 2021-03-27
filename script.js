@@ -85,6 +85,7 @@ function generatePassword() {
     }
 
     var hasValidResult = false;
+    
     while (hasValidResult === false) {
     // Choose characters from the combined array untill you fill the passwordArray to the required length
       while (passwordArray.length < passwordLength) {
@@ -115,9 +116,8 @@ function generatePassword() {
     }
 
    var passwordFinal = passwordArray.join('');
-    console.log(`passwordFinal: ${passwordFinal}`);
-    return passwordFinal;
 
+    return passwordFinal;
   }
   
   
