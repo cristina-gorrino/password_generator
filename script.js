@@ -84,12 +84,22 @@ function generatePassword() {
       chooseFromArray = chooseFromArray.concat(specialChar);
     }
 
+    var hasValidResult = false;
+    while (hasValidResult === false) {
     // Choose characters from the combined array untill you fill the passwordArray to the required length
     while (passwordArray.length < passwordLength) {
       // choose a random number within the chooseFromArray, take the element at that index and add it to passwordArray
       var i = Math.floor(Math.random() * Math.floor(chooseFromArray.length));
       var newArr = passwordArray.push(chooseFromArray[i]);
     }
+    // Check for a valid result that includes at least one character of each required component
+    for (var j = 0; j<passwordArray.length; j++) {
+      if (hasLowercase) {
+        passwordArray.includes()
+      }
+    }
+    }
+
 
    var passwordFinal = passwordArray.join('');
     console.log(`passwordFinal: ${passwordFinal}`);
