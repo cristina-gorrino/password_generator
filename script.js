@@ -71,7 +71,7 @@ function generatePassword() {
     var chooseFromArray = [];
     var passwordArray = [];
     
-    //TODO: Fix bug, only adds the first true array. Need to do all combinations
+    // Create an array with all the required characters to choose from
     if (hasLowercase) {
       chooseFromArray = chooseFromArray.concat(lowLetters);
     } 
