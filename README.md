@@ -1,6 +1,6 @@
 # Password Generator
 
-Deployed URL: placeholder
+Deployed URL: https://cristina-gorrino.github.io/password_generator/
 
 Purpose: To create a password generator that asks for user input about password characteristics, and then creates the required password.
 
