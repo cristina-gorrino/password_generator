@@ -87,19 +87,32 @@ function generatePassword() {
     var hasValidResult = false;
     while (hasValidResult === false) {
     // Choose characters from the combined array untill you fill the passwordArray to the required length
-    while (passwordArray.length < passwordLength) {
-      // choose a random number within the chooseFromArray, take the element at that index and add it to passwordArray
-      var i = Math.floor(Math.random() * Math.floor(chooseFromArray.length));
-      var newArr = passwordArray.push(chooseFromArray[i]);
-    }
-    // Check for a valid result that includes at least one character of each required component
-    for (var j = 0; j<passwordArray.length; j++) {
-      if (hasLowercase) {
-        passwordArray.includes()
+      while (passwordArray.length < passwordLength) {
+        // choose a random number within the chooseFromArray, take the element at that index and add it to passwordArray
+        var i = Math.floor(Math.random() * Math.floor(chooseFromArray.length));
+        var newArr = passwordArray.push(chooseFromArray[i]);
       }
+      // Check for a valid result that includes at least one character of each required component
+      var validatorArray = []
+      if (hasLowercase) {
+        var found = passwordArray.some(r=> lowLetters.indexOf(r) >= 0);
+        var tempArray = validatorArray.push(found);
+      }
+      if (hasUppercase) {
+        var found2 = passwordArray.some(r=> upLetters.indexOf(r) >= 0);
+        var tempArray = validatorArray.push(found2);
+      }
+      if (hasNumeric) {
+        var found3 = passwordArray.some(r=> nums.indexOf(r) >= 0);
+        var tempArray = validatorArray.push(found3);
+      }
+      if (hasSpecial) {
+        var found4 = passwordArray.some(r=> specialChar.indexOf(r) >= 0);
+        var tempArray = validatorArray.push(found4);
+      }
+      // Check that we found at least one element from each required category
+      hasValidResult = validatorArray.every( e  => e === true);
     }
-    }
-
 
    var passwordFinal = passwordArray.join('');
     console.log(`passwordFinal: ${passwordFinal}`);
